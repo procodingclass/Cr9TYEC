@@ -32,13 +32,16 @@ var coins = [
   { x: 650, y: 200 },
   { x: 700, y: 50 }
 ];
-
+var song;
+var gameOverSound;
 function preload() {
   bgImg = loadImage("./assets/background.png");
   coinImg = loadImage("./assets/coins.png");
   p1Img = loadImage("./assets/box1.png");
   p2Img = loadImage("./assets/box2.png");
   p3Img = loadImage("./assets/box3.png");
+  song = loadSound("./assets/simple-melody.mp3");
+  gameOverSound = loadSound("./assets/sad-trombone.mp3");
 }
 
 function setup() {
@@ -62,6 +65,7 @@ function setup() {
 
 function draw() {
   background(bgImg);
+
   Engine.update(engine);
   if (gameState === "play") {
     resetBackground();
@@ -73,6 +77,8 @@ function draw() {
     text("SLING TO START", 325, 150);
     if (mouseIsPressed) {
       gameState = "play";
+      song.setVolume(0.1);
+      song.play();
     }
   }
 
@@ -87,6 +93,8 @@ function draw() {
 
   if (lives === 0) {
     gameState = "end";
+    song.stop();
+    gameOverSound.play();
   }
 
   if (player.body.position.y > 500 && lives > 0) {
