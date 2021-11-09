@@ -125,7 +125,7 @@ function drawPoints(i) {
   push();
   stroke("#fff9c4");
   strokeWeight(3);
-  ellipseMode(CENTER);
+  ellipseMode(RADIUS);
   fill("#4527a0");
   ellipse(points[i].x, points[i].y, 20, 20);
   pop();
