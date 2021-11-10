@@ -40,7 +40,7 @@ function preload() {
   p1Img = loadImage("./assets/box1.png");
   p2Img = loadImage("./assets/box2.png");
   p3Img = loadImage("./assets/box3.png");
-  song = loadSound("./assets/simple-melody.mp3");
+  song = loadSound("./assets/children-games.mp3");
   gameOverSound = loadSound("./assets/sad-trombone.mp3");
 }
 
@@ -95,6 +95,7 @@ function draw() {
     gameState = "end";
     song.stop();
     gameOverSound.play();
+    gameOverSound.setVolume(0.2);
   }
 
   if (player.body.position.y > 500 && lives > 0) {
