@@ -23,7 +23,7 @@ var highScore = 900;
 
 var points = [
   { x: 400, y: 200, isAttached: true },
-  { x: 600, y: 50, isAttached: false },
+  { x: 600, y: 100, isAttached: false },
   { x: 650, y: 300, isAttached: false },
   { x: 800, y: 180, isAttached: false }
 ];
